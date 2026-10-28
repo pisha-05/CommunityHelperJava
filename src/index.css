@@ -1,0 +1,432 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+
+    /* 1. Neutral Foundation (Light Surface Baseline) */
+    --color-bg: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-surface-elevated: #FFFFFF;
+    --color-surface-secondary: #F1F5F9;
+    --color-surface-tertiary: #E2E8F0;
+    --color-border: #E2E8F0;
+    --color-border-strong: #CBD5E1;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #334155;
+    --color-text-tertiary: #64748B;
+    --color-text-disabled: #94A3B8;
+
+    /* 2. Primary Navigation — Blue (#2563EB) */
+    --color-primary-50: #EFF6FF;
+    --color-primary-100: #DBEAFE;
+    --color-primary-200: #BFDBFE;
+    --color-primary-300: #93C5FD;
+    --color-primary-400: #60A5FA;
+    --color-primary-500: #3B82F6;
+    --color-primary-600: #2563EB;
+    --color-primary-700: #1D4ED8;
+    --color-primary-800: #1E40AF;
+    --color-primary-900: #1E3A8A;
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+    --color-primary-active: #1E40AF;
+    --color-primary-bg: #EFF6FF;
+    --color-primary-border: #BFDBFE;
+    --color-primary-text: #1E40AF;
+
+    /* 3. Accessibility / Safe Route — Green (#16A34A) */
+    --color-accessible-50: #F0FDF4;
+    --color-accessible-100: #DCFCE7;
+    --color-accessible-200: #BBF7D0;
+    --color-accessible-300: #86EFAC;
+    --color-accessible-400: #4ADE80;
+    --color-accessible-500: #22C55E;
+    --color-accessible-600: #16A34A;
+    --color-accessible-700: #15803D;
+    --color-accessible-800: #166534;
+    --color-accessible-900: #14532D;
+    --color-accessible: #16A34A;
+    --color-accessible-bg: #F0FDF4;
+    --color-accessible-border: #BBF7D0;
+    --color-accessible-text: #166534;
+
+    /* 4. Voice Assistant — Purple (#9333EA) */
+    --color-voice-50: #FAF5FF;
+    --color-voice-100: #F3E8FF;
+    --color-voice-200: #E9D5FF;
+    --color-voice-300: #D8B4FE;
+    --color-voice-400: #C084FC;
+    --color-voice-500: #A855F7;
+    --color-voice-600: #9333EA;
+    --color-voice-700: #7E22CE;
+    --color-voice-800: #6B21A8;
+    --color-voice-900: #581C87;
+    --color-voice: #9333EA;
+    --color-voice-bg: #FAF5FF;
+    --color-voice-border: #E9D5FF;
+    --color-voice-text: #6B21A8;
+
+    /* 5. Warning / Caution — Amber (#D97706) */
+    --color-warning-50: #FFFBEB;
+    --color-warning-100: #FEF3C7;
+    --color-warning-200: #FDE68A;
+    --color-warning-300: #FCD34D;
+    --color-warning-400: #FBBF24;
+    --color-warning-500: #F59E0B;
+    --color-warning-600: #D97706;
+    --color-warning-700: #B45309;
+    --color-warning-800: #92400E;
+    --color-warning-900: #78350F;
+    --color-warning: #D97706;
+    --color-warning-bg: #FFFBEB;
+    --color-warning-border: #FDE68A;
+    --color-warning-text: #92400E;
+
+    /* 6. Community Reports — Yellow (#CA8A04) */
+    --color-community-50: #FEFCE8;
+    --color-community-100: #FEF9C3;
+    --color-community-200: #FEF08A;
+    --color-community-300: #FDE047;
+    --color-community-400: #FACC15;
+    --color-community-500: #EAB308;
+    --color-community-600: #CA8A04;
+    --color-community-700: #A16207;
+    --color-community-800: #854D0E;
+    --color-community-900: #713F12;
+    --color-community: #CA8A04;
+    --color-community-bg: #FEFCE8;
+    --color-community-border: #FEF08A;
+    --color-community-text: #854D0E;
+
+    /* 7. Danger / Emergency — Red (#DC2626) */
+    --color-danger-50: #FEF2F2;
+    --color-danger-100: #FEE2E2;
+    --color-danger-200: #FECACA;
+    --color-danger-300: #FCA5A5;
+    --color-danger-400: #F87171;
+    --color-danger-500: #EF4444;
+    --color-danger-600: #DC2626;
+    --color-danger-700: #B91C1C;
+    --color-danger-800: #991B1B;
+    --color-danger-900: #7F1D1D;
+    --color-danger: #DC2626;
+    --color-danger-bg: #FEF2F2;
+    --color-danger-border: #FECACA;
+    --color-danger-text: #991B1B;
+
+    /* 8. Transit — Teal / Cyan (#0D9488) */
+    --color-transit-50: #F0FDFA;
+    --color-transit-100: #CCFBF1;
+    --color-transit-200: #99F6E4;
+    --color-transit-300: #5EEAD4;
+    --color-transit-400: #2DD4BF;
+    --color-transit-500: #14B8A6;
+    --color-transit-600: #0D9488;
+    --color-transit-700: #0F766E;
+    --color-transit-800: #115E59;
+    --color-transit-900: #134E4A;
+    --color-transit: #0D9488;
+    --color-transit-bg: #F0FDFA;
+    --color-transit-border: #99F6E4;
+    --color-transit-text: #115E59;
+
+    /* 9. Special Accent — Magenta / Pink (#DB2777) */
+    --color-accent-50: #FDF2F8;
+    --color-accent-100: #FCE7F3;
+    --color-accent-200: #FBCFE8;
+    --color-accent-300: #F9A8D4;
+    --color-accent-400: #F472B6;
+    --color-accent-500: #EC4899;
+    --color-accent-600: #DB2777;
+    --color-accent-700: #BE185D;
+    --color-accent-800: #9D174D;
+    --color-accent-900: #831843;
+    --color-accent: #DB2777;
+
+    /* Route Polyline Tokens */
+    --route-primary: #2563EB;
+    --route-accessible: #16A34A;
+    --route-alternative: #64748B;
+    --route-warning: #D97706;
+    --route-danger: #DC2626;
+
+    /* Focus Indicator */
+    --focus-ring: 2px solid #2563EB;
+    --focus-offset: 2px;
+  }
+
+  .dark {
+    --color-bg: #0B1220;
+    --color-surface: #111827;
+    --color-surface-elevated: #172033;
+    --color-surface-secondary: #1E293B;
+    --color-surface-tertiary: #334155;
+    --color-border: #334155;
+    --color-border-strong: #475569;
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #CBD5E1;
+    --color-text-tertiary: #94A3B8;
+    --color-text-disabled: #64748B;
+
+    --color-primary: #60A5FA;
+    --color-primary-bg: #1E3A8A;
+    --color-primary-border: #1E40AF;
+    --color-primary-text: #DBEAFE;
+
+    --color-accessible: #4ADE80;
+    --color-accessible-bg: #14532D;
+    --color-accessible-border: #166534;
+    --color-accessible-text: #DCFCE7;
+
+    --color-voice: #C084FC;
+    --color-voice-bg: #581C87;
+    --color-voice-border: #6B21A8;
+    --color-voice-text: #F3E8FF;
+
+    --color-warning: #FBBF24;
+    --color-warning-bg: #78350F;
+    --color-warning-border: #92400E;
+    --color-warning-text: #FEF3C7;
+
+    --color-community: #FDE047;
+    --color-community-bg: #713F12;
+    --color-community-border: #854D0E;
+    --color-community-text: #FEF9C3;
+
+    --color-danger: #F87171;
+    --color-danger-bg: #7F1D1D;
+    --color-danger-border: #991B1B;
+    --color-danger-text: #FEE2E2;
+
+    --color-transit: #2DD4BF;
+    --color-transit-bg: #134E4A;
+    --color-transit-border: #115E59;
+    --color-transit-text: #CCFBF1;
+  }
+
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: manipulation;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0F172A;
+    color: #0F172A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessible Focus States */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #2563EB;
+    outline-offset: 2px;
+  }
+
+  .font-mono-nums {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* High Contrast Focus States */
+html.high-contrast button:focus-visible,
+html.high-contrast a:focus-visible,
+html.high-contrast input:focus-visible,
+html.high-contrast select:focus-visible {
+  outline: 3px solid #FACC15 !important;
+  outline-offset: 2px !important;
+}
+
+/* High Contrast Global Overrides */
+html.high-contrast,
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #FEF08A !important;
+}
+
+html.high-contrast * {
+  border-color: #FACC15 !important;
+}
+
+html.high-contrast .leaflet-tile-pane {
+  filter: contrast(160%) brightness(80%) saturate(140%) !important;
+}
+
+html.high-contrast button {
+  font-weight: 800 !important;
+}
+
+/* Safe Area Insets for Modern Mobile Phones (iOS notch / Android gesture bar) */
+
+.safe-top {
+  padding-top: max(env(safe-area-inset-top), 0.75rem);
+}
+
+.safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+}
+
+.safe-bottom-compact {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+/* 48px Minimum Touch Target Class */
+.touch-target-48 {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Brand Card Shadows */
+.card-shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.08);
+}
+
+.card-shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.09), 0 2px 4px -2px rgba(15, 23, 42, 0.09);
+}
+
+.card-shadow-lg {
+  box-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.12), 0 4px 10px -4px rgba(15, 23, 42, 0.1);
+}
+
+.card-shadow-floating {
+  box-shadow: 0 20px 35px -5px rgba(15, 23, 42, 0.2), 0 8px 16px -6px rgba(15, 23, 42, 0.15);
+}
+
+/* Leaflet Matte Theme */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background-color: #E2E8F0;
+  font-family: inherit;
+  z-index: 1;
+}
+
+/* Pulse animation for user GPS position */
+@keyframes pulse-beacon {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-beacon 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Bottom Sheet Transitions */
+.bottom-sheet-backdrop {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bottom-sheet-content {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), max-height 0.35s ease;
+}
+
+/* Smooth Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Leaflet Custom DivIcon Clean Reset */
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-place-pin, 
+.custom-hazard-pin, 
+.custom-user-pin,
+.custom-div-icon {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+
+.leaflet-grab {
+  cursor: grab !important;
+}
+.leaflet-dragging .leaflet-grab {
+  cursor: grabbing !important;
+}
+
+/* Soundwave bar animations for Voice Assistant speaking state */
+@keyframes soundwave-pulse-1 {
+  0%, 100% { height: 6px; opacity: 0.7; }
+  50% { height: 24px; opacity: 1; }
+}
+
+@keyframes soundwave-pulse-2 {
+  0%, 100% { height: 18px; opacity: 1; }
+  50% { height: 8px; opacity: 0.6; }
+}
+
+@keyframes soundwave-pulse-3 {
+  0%, 100% { height: 10px; opacity: 0.8; }
+  50% { height: 28px; opacity: 1; }
+}
+
+@keyframes soundwave-pulse-4 {
+  0%, 100% { height: 22px; opacity: 0.9; }
+  50% { height: 12px; opacity: 0.7; }
+}
+
+.animate-soundwave-1 {
+  animation: soundwave-pulse-1 0.75s ease-in-out infinite;
+}
+.animate-soundwave-2 {
+  animation: soundwave-pulse-2 0.85s ease-in-out infinite;
+}
+.animate-soundwave-3 {
+  animation: soundwave-pulse-3 0.65s ease-in-out infinite;
+}
+.animate-soundwave-4 {
+  animation: soundwave-pulse-4 0.95s ease-in-out infinite;
+}
+
+/* High Contrast & Reduced Motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
